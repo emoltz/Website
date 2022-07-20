@@ -1,0 +1,2 @@
+# Bloggo
+Made with Django
