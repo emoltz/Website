@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
 {% block mainContent %}
-    <h2 class="container-fluid">Heading 2</h2>
+    {% load static %}
+    <h1 class="container-fluid">Happy {{ weekday }}!</h1>
+
+    <div class="container mx-md-5">
+        <img class="img-fluid mx-auto imgIcon" src="{% static '/images/ethan-headshot_smaller.jpg' %}" alt="A professional headshot">
+        <p>My name is Ethan Shafran Moltz and I am a Fullstack Developer living in NYC. I am
+        currently attending New York University's Master's in Computer Science program</p>
+    </div>
+
 {% endblock %}
