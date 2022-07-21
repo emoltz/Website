@@ -2,12 +2,26 @@
 
 {% block mainContent %}
     {% load static %}
-    <h1 class="container-fluid">Happy {{ weekday }}!</h1>
+    <div class="container">
+        <div class="row">
 
-    <div class="container mx-md-5">
-        <img class="img-fluid mx-auto imgIcon" src="{% static '/images/ethan-headshot_smaller.jpg' %}" alt="A professional headshot">
-        <p>My name is Ethan Shafran Moltz and I am a Fullstack Developer living in NYC. I am
-        currently attending New York University's Master's in Computer Science program</p>
+            <div class="col-lg-9">
+                <h1 class="display-1">
+                    <strong>Oh, hey!</strong><br/></h1>
+                <h2 class="lead">You made it! So glad you're here... you look great, by the way.</h2>
+{#                <p class="lead">But I'm glad I did. You look great today! </p>#}
+            </div>
+            <div class="col">
+                <img class=" imgIcon" src="{% static '/images/ethan-headshot_smaller.jpg' %}" alt="A professional headshot">
+            </div>
+        </div>
     </div>
+
+
+
+
+
+
+
 
 {% endblock %}
