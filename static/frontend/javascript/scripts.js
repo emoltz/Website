@@ -1,1 +1,1 @@
-$('h2').text("CUSTOM JAVASCRIPT THIS WORKS");
+// $('h2').text("CUSTOM JAVASCRIPT THIS WORKS!!!");
