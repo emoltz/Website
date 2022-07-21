@@ -1,1 +1,0 @@
-// $('p').text("CUSTOM JAVASCRIPT THIS WORKS!!!");
