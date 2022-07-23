@@ -19,4 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('frontend.urls')),
+    # path('/blog/'), include('blogposts.urls'),
+    # TODO how to point the blog url to the blog app?
 ]
