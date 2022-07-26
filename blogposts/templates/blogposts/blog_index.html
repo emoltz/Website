@@ -1,28 +1,38 @@
 {% extends "base.html" %}
 
 {% block mainContent %}
-
+    {% load static %}
     <div class="container text-center p-2">
         <h1 class="display-1">The Bloggo</h1>
         <hr>
-        {% for post in posts %}
-            <h2 class="display-3">
-            <a href="{% url 'notes_detail' post.pk %}" class="link-dark">
-                {{ post.title }}
-            </a>
+        <div class="card m-1" style="width: 18rem">
+            {% for post in posts %}
+                <a href="{% url 'notes_detail' post.pk %}">
+                    <img src="{% static 'images/bmo.png' %}" class="card-img-top" alt="Hello I am BMO">
+                </a>
 
-            </h2>
-            <small class="text-secondary">
-                {{ post.created_on.date }} |
-                Categories:
-                {% for category in post.categories.all %}
-                    <a href="#">{{ category.name }}</a>
-                {% endfor %}
-            </small>
-            <p>
-                {{ post.body | slice:":400" }}...
-            </p>
-        {% endfor %}
+                <div class="card-body">
+
+                <h2 class="card-title">
+                    <a href="{% url 'notes_detail' post.pk %}" class="link-dark">
+                        {{ post.title }}
+                    </a>
+
+                </h2>
+                <small class="text-secondary">
+                    {{ post.created_on.date }} |
+                    Categories:
+                    {% for category in post.categories.all %}
+                        <a href="#">{{ category.name }}</a>
+                    {% endfor %}
+                </small>
+                <p class="card-text">
+                    {{ post.body | slice:":400" }}...
+                </p>
+            {% endfor %}
+            </div>
+
+        </div>
 
 
     </div>
