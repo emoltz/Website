@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block mainContent %}
+
+    <div class="container text-center">
+        <h1 class="display-1">The Bloggo</h1>
+        <hr>
+        {% for post in posts %}
+            <h2 class="display-3">
+                {{ post.title }}
+            </h2>
+            <small class="text-secondary">
+                {{ post.created_on.date }} |
+                Categories:
+                {% for category in post.categories.all %}
+                    <a href="#">{{ category.name }}</a>
+                {% endfor %}
+            </small>
+            <p>
+                {{ post.body | slice:":400" }}...
+            </p>
+        {% endfor %}
+
+
+    </div>
+
+{% endblock %}

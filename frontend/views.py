@@ -18,6 +18,7 @@ class AboutMe(TemplateView):
     template_name = 'frontend/aboutme.html'
     extra_context = {}
 
+
 class Blog(TemplateView):
-    template_name = 'frontend/blog.html'
+    template_name = 'frontend/blog_dummy.html'
     extra_context = {}
