@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block mainContent %}
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <small>
+            {{ post.created_on }} | Categories:
+            {% for category in post.categories.all %}
+                <a href="#">{{ category.name }}</a>
+            {% endfor %}
+        </small>
+
+        <p>{{ post.body | linebreaks }}</p>
+
+    </div>
+
+
+{% endblock %}

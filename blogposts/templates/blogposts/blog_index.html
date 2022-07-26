@@ -2,12 +2,15 @@
 
 {% block mainContent %}
 
-    <div class="container text-center">
+    <div class="container text-center p-2">
         <h1 class="display-1">The Bloggo</h1>
         <hr>
         {% for post in posts %}
             <h2 class="display-3">
+            <a href="{% url 'notes_detail' post.pk %}" class="link-dark">
                 {{ post.title }}
+            </a>
+
             </h2>
             <small class="text-secondary">
                 {{ post.created_on.date }} |
