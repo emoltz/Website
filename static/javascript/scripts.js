@@ -1,1 +1,1 @@
-console.log("Hello?")
+console.log("https://github.com/emoltz/django_bloggo?")
