@@ -18,9 +18,8 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField('Category', related_name='posts')
-
+    # image = models.ImageField(upload_to='images/', default="")
     # TODO add image field
-    # image = models.ImageField(upload_to='image_dump/')
 
     def __str__(self):
         date = str(self.created_on.date())
