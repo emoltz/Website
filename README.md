@@ -9,3 +9,6 @@ So I'm starting by initializing a Django project and building some really basic 
 So I took 6 days or so off of this project to learn Django a bit better. I made some smaller sample projects and now I feel better equipped to frame this project up. 
 
 Everything is working as expected now, and all that is left to do is... make the site. 
+
+## July 27, 2022
+Got the blog models to work with the database and feed stuff to the front end. 
