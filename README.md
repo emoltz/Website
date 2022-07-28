@@ -12,3 +12,4 @@ Everything is working as expected now, and all that is left to do is... make the
 
 ## July 27, 2022
 Got the blog models to work with the database and feed stuff to the front end. 
+Also, just got **markdown support** baby!! Very exciting. 
