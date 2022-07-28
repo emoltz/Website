@@ -7,14 +7,16 @@
         <hr>
         <div class="card m-1" style="width: 18rem">
             {% for post in posts %}
-                <a href="{% url 'notes_detail' post.pk %}">
-                    <img src="{% static 'images/bmo.png' %}" class="card-img-top" alt="Hello I am BMO">
+                <a href="{% url 'blog_detail' post.pk %}">
+                    {# #TODO below: How to make this path name dynamic? #}
+
+                    <img src="{{ post.image.url }}" class="card-img-top" alt="Hello I am BMO">
                 </a>
 
                 <div class="card-body">
 
                 <h2 class="card-title">
-                    <a href="{% url 'notes_detail' post.pk %}" class="link-dark">
+                    <a href="{% url 'blog_detail' post.pk %}" class="link-dark">
                         {{ post.title }}
                     </a>
 

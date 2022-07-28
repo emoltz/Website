@@ -1,4 +1,5 @@
 from django.db import models
+from django import template
 
 
 class Category(models.Model):
@@ -18,8 +19,9 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField('Category', related_name='posts')
-    # image = models.ImageField(upload_to='images/', default="")
-    # TODO add image field
+    image = models.ImageField(upload_to='uploaded_images/', default='', null=True, blank=True)
+
+    # TODO a way to get the name of the image that was uploaded?
 
     def __str__(self):
         date = str(self.created_on.date())

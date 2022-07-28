@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import *
-
+import logging
 from blogposts.models import *
+
+logger = logging.getLogger(__name__)
 
 
 class BlogHomepage(ListView):
