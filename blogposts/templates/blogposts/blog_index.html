@@ -8,7 +8,7 @@
         <div class="card m-1" style="width: 18rem">
             {% for post in posts %}
                 <a href="{% url 'blog_detail' post.pk %}">
-                    {# #TODO below: How to make this path name dynamic? #}
+                    {# TODO now make the cards in a grid #}
 
                     <img src="{{ post.image.url }}" class="card-img-top" alt="Hello I am BMO">
                 </a>
