@@ -40,7 +40,7 @@ h2 {
 }
 
 .main-navigation-toggle {
-  position: fixed;
+  position: absolute;
   height: 1px;
   width: 1px;
   overflow: hidden;
@@ -48,7 +48,7 @@ h2 {
   white-space: nowrap;
 
   + label {
-    position: fixed;
+    position: absolute;
     top: calc(var(--space));
     left: calc(var(--space));
     cursor: pointer;
