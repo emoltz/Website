@@ -5,7 +5,7 @@ blog_django/settings.py
 __pycache__
 db.sqlite3
 media
-static/images
+static/images/3d_assets
 
 # Backup files #
 *.bak
