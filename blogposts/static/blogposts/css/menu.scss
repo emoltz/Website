@@ -302,3 +302,11 @@ input:checked + .slider:before {
     color:var(--accent);
     margin-bottom: 5px;
 }
+
+.bg-light{
+  transition: background-color 200ms;
+}
+
+.bg-dark{
+  transition: background-color 200ms;
+}
