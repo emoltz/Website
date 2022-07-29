@@ -2,6 +2,11 @@
 {% load markdown_extras %}
 {% block mainContent %}
     <div class="container m-5">
+        <button class="btn btn-outline-secondary " id="back">
+            <a href="javascript:history.back()" id="back-button">go back</a>
+        </button>
+
+
         <div class="row">
             <div class="col-8">
                 <h1 class="display-2">{{ post.title }}</h1>

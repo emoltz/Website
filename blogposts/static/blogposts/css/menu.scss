@@ -298,3 +298,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+#back-button{
+    color:var(--accent);
+    margin-bottom: 5px;
+}

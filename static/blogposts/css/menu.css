@@ -231,4 +231,8 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%; }
 
+#back-button {
+  color: var(--accent);
+  margin-bottom: 5px; }
+
 /*# sourceMappingURL=menu.css.map */
