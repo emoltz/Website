@@ -4,7 +4,7 @@ const switcher = document.getElementById('theme-switcher')
 const allContent = document.getElementById('theme')
 const rootSCSS = document.querySelector(':root');
 const backButton = document.getElementById('back');
-
+const blogPostTitle = document.querySelectorAll('#blog_post_title');
 let theme;
 
 
@@ -12,11 +12,19 @@ function darkMode() {
     allContent.classList.remove('bg-light');
     allContent.classList.add('bg-dark');
     allContent.classList.add('text-white');
-    rootSCSS.style.setProperty('--color-primary', '#81b29a')
+    rootSCSS.style.setProperty('--color-primary', '#81b29a');
+
+    rootSCSS.style.setProperty('--color-secondary', '#000000');
+
     // TODO this should only happen if we're on the blog detail page
     if (backButton) {
         backButton.classList.toggle('btn-outline-secondary');
         backButton.classList.toggle('btn-outline-success');
+    }
+    if(blogPostTitle){
+        blogPostTitle.forEach( e =>{
+            e.classList.toggle('text-white');
+        })
     }
 
 
@@ -31,12 +39,17 @@ function lightMode() {
     allContent.classList.add('bg-light');
     allContent.classList.remove('text-white');
     rootSCSS.style.setProperty('--color-primary', '#656d4a');
+    rootSCSS.style.setProperty('--color-secondary', '#F0F7EE');
 
     if (backButton) {
         backButton.classList.toggle('btn-outline-secondary');
         backButton.classList.toggle('btn-outline-success');
     }
-
+    //  if(blogPostTitle){
+    //     blogPostTitle.forEach( e =>{
+    //         e.classList.toggle('text-white');
+    //     })
+    // }
 
     //save setting
     localStorage.setItem('theme', 'light');

@@ -15,7 +15,7 @@
                     {# TODO Make responsive#}
                     <div class="card-body">
                         <h1 class="card-title text-decoration-none">
-                            <a href="{% url 'blog_detail' pk=post.pk %}">
+                            <a href="{% url 'blog_detail' pk=post.pk %}" id="blog_post_title">
                                 {{ post.title }}
                             </a>
                         </h1>
@@ -24,6 +24,7 @@
                             {{ post.created_on.date }} |
                             Categories:
                             {% for category in post.categories.all %}
+                                {#TODO make category list#}
                                 <a href="#">{{ category.name }}</a>
                             {% endfor %}
                         </small>
@@ -36,6 +37,7 @@
                 </div>
             </div>
         {% endfor %}
+
     </div>
 
 {% endblock %}
