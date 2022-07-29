@@ -10,3 +10,16 @@ a:link {
     text-decoration: none;
 }
 
+.toolbar{
+    --navbarheight: 50px;
+    position: sticky;
+    top:0;
+    background-color: #1b1b1b;
+    opacity: 50%;
+    transition: .5s ease;
+    margin-bottom: calc(0px - var(--navbarheight));
+
+
+
+
+}
