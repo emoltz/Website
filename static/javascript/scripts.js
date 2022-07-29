@@ -14,8 +14,11 @@ function darkMode() {
     allContent.classList.add('text-white');
     rootSCSS.style.setProperty('--color-primary', '#81b29a')
     // TODO this should only happen if we're on the blog detail page
-    // backButton.classList.toggle('btn-outline-secondary');
-    // backButton.classList.toggle('btn-outline-success');
+    if (backButton) {
+        backButton.classList.toggle('btn-outline-secondary');
+        backButton.classList.toggle('btn-outline-success');
+    }
+
 
     //save setting
     localStorage.setItem('theme', 'dark');
@@ -29,15 +32,16 @@ function lightMode() {
     allContent.classList.remove('text-white');
     rootSCSS.style.setProperty('--color-primary', '#656d4a');
 
-    // TODO this should only happen if we're on the blog detail page
-    // backButton.classList.toggle('btn-outline-secondary');
-    // backButton.classList.toggle('btn-outline-success');
+    if (backButton) {
+        backButton.classList.toggle('btn-outline-secondary');
+        backButton.classList.toggle('btn-outline-success');
+    }
+
 
     //save setting
     localStorage.setItem('theme', 'light');
 
 }
-
 
 
 // TODO how to make this persist between pages?
