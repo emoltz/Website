@@ -24,7 +24,7 @@
       <list>
         <option value="$MODULE_DIR$/templates" />
         <option value="$MODULE_DIR$/static" />
-        <option value="$MODULE_DIR$/frontend/static" />
+        <option value="$MODULE_DIR$/blogposts/static" />
       </list>
     </option>
   </component>
