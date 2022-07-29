@@ -9,7 +9,10 @@
         {% for post in posts %}
             <div class="col">
                 <div class="p-3 border">
-                    <img src="{{ post.image.url }}" alt="" class="card-img-top ">
+                    <a href="{% url 'blog_detail' pk=post.pk %}">
+                        <img src="{{ post.image.url }}" alt="" class="card-img">
+                    </a>
+
                     <div class="card-body">
                         <h1 class="card-title text-decoration-none">
                             <a href="{% url 'blog_detail' pk=post.pk %}">

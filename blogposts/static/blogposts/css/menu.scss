@@ -48,8 +48,8 @@ h2{
 
   + label {
     position: fixed;
-    top: calc(var(--space) * 1.5);
-    right: calc(var(--space) * 2);
+    top: calc(var(--space));
+    left: calc(var(--space));
     cursor: pointer;
     z-index: 2;
   }
