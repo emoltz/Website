@@ -1,16 +1,25 @@
 {% extends "base.html" %}
-
+{% load markdown_extras %}
 {% block mainContent %}
-    <div class="container">
-        <h1>{{ post.title }}</h1>
-        <small>
-            {{ post.created_on }} | Categories:
-            {% for category in post.categories.all %}
-                <a href="#">{{ category.name }}</a>
-            {% endfor %}
-        </small>
+    <div class="container m-5">
+        <div class="row">
+            <div class="col-8">
+                <h1 class="display-2">{{ post.title }}</h1>
+                <small>
+                    {{ post.created_on }} | Categories:
+                    {% for category in post.categories.all %}
+                        <a href="#">{{ category.name }}</a>
+                    {% endfor %}
+                </small>
 
-        <p>{{ post.body | linebreaks }}</p>
+                <p>{{ post.body | markdown | safe }}</p>
+
+            </div>
+            <div class="col-4">
+                <img src="{{ post.image.url }}" alt="" class="float-start img-fluid">
+            </div>
+        </div>
+
 
     </div>
 
