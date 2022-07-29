@@ -13,3 +13,6 @@ Everything is working as expected now, and all that is left to do is... make the
 ## July 27, 2022
 Got the blog models to work with the database and feed stuff to the front end. 
 Also, just got **markdown support** baby!! Very exciting. 
+
+## July 28
+Got a new navbar working, pushed to main branch. Also got `scss` support, which will be helpful with the more complex frontend animations and things. It was a complicated process -- there is a Django-specific tool that compiles the `scss` into `css` that needed to be installed manually, so there was some trial and error. 
