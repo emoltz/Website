@@ -2,7 +2,8 @@
 
 :root {
   //--color-primary: #002626;
-  --color-primary: #414926;
+  --color-primary: #656d4a;
+  //--color-secondary: #F0F7EE;
   --color-secondary: #F0F7EE;
   --duration: 1s;
   --nav-duration: calc(var(--duration) / 4);
@@ -149,14 +150,14 @@ h2{
 
 .main-content {
   margin: 6rem auto;
-  //max-width: 70ch;
+  max-width: 100ch;
   padding: 0 calc(var(--space) );
   transform: translateX(0);
   transition: transform calc(var(--nav-duration) * 2) var(--ease);
-  //
-  //> * + * {
-  //  margin-top: calc(var(--space) * var(--line-height));
-  //}
+
+  > * + * {
+    margin-top: calc(var(--space) * var(--line-height));
+  }
 }
 
 .main-navigation-toggle:checked {

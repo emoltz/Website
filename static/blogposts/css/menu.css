@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather:900&display=swap");
 :root {
-  --color-primary: #414926;
+  --color-primary: #656d4a;
   --color-secondary: #F0F7EE;
   --duration: 1s;
   --nav-duration: calc(var(--duration) / 4);
@@ -116,9 +116,12 @@ h2 {
 
 .main-content {
   margin: 6rem auto;
+  max-width: 100ch;
   padding: 0 calc(var(--space));
   transform: translateX(0);
   transition: transform calc(var(--nav-duration) * 2) var(--ease); }
+  .main-content > * + * {
+    margin-top: calc(var(--space) * var(--line-height)); }
 
 .main-navigation-toggle:checked ~ label .icon--menu-toggle .icon-group {
   transform: translateX(100%); }
