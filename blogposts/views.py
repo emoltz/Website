@@ -10,6 +10,7 @@ class BlogHomepage(ListView):
     model = Post
     context_object_name = "posts"
     template_name = "blogposts/blog_index.html"
+    ordering = ['-created_on']
 
 
 class BlogDetail(DetailView):
