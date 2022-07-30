@@ -22,48 +22,58 @@
 <body class="bg-light" id="theme">
 
 
-    <input id="page-nav-toggle" class="main-navigation-toggle" type="checkbox"/>
-    <label for="page-nav-toggle">
-        <svg class="icon--menu-toggle" viewBox="0 0 60 30">
-            <g class="icon-group">
-                <g class="icon--menu">
-                    <path d="M 6 0 L 54 0"></path>
-                    <path d="M 6 15 L 54 15"></path>
-                    <path d="M 6 30 L 54 30"></path>
-                </g>
-                <g class="icon--close">
-                    <path d="M 15 0 L 45 30"></path>
-                    <path d="M 15 30 L 45 0"></path>
-                </g>
-            </g>
-        </svg>
-    </label>
 
-    <div class="text-end p-3">
-        <label class="switch" >
-            <input type="checkbox"id="theme-switcher">
-            <span class="slider round"></span>
-        </label>
-    </div>
+<div class="area"></div>
+<nav class="main-menu">
+    <ul>
+        <li>
+            <a href="http://justinfarrow.com">
+                <i class="fa fa-home fa-2x"></i>
+                <span class="nav-text">
+                            Dashboard
+                        </span>
+            </a>
+
+        </li>
+        <li class="has-subnav">
+            <a href="#">
+                <i class="fa fa-laptop fa-2x"></i>
+                <span class="nav-text">
+                            Stars Components
+                        </span>
+            </a>
+
+        </li>
+        <li class="has-subnav">
+            <a href="#">
+                <i class="fa fa-list fa-2x"></i>
+                <span class="nav-text">
+                            Forms
+                        </span>
+            </a>
+
+        </li>
+        <li class="has-subnav">
+            <a href="#">
+                <i class="fa fa-folder-open fa-2x"></i>
+                <span class="nav-text">
+                            Pages
+                        </span>
+            </a>
+
+        </li>
+
+</nav>
 
 
-    <nav class="main-navigation">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="{% url 'resume' %}">Resume</a></li>
-            <li><a href="{% url 'aboutme' %}">About</a></li>
-
-        </ul>
-    </nav>
 
 
-    <main class="main-content container-fluid">
+<main class="main-content container-fluid">
 
-        {% block mainContent %}
-        {% endblock %}
+    {% block mainContent %}
+    {% endblock %}
 
-    </main>
+</main>
 
 
 <!--FOOTER-->
