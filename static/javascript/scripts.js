@@ -5,6 +5,7 @@ const allContent = document.getElementById('theme')
 const rootSCSS = document.querySelector(':root');
 const backButton = document.getElementById('back');
 const blogPostTitle = document.querySelectorAll('#blog_post_title');
+const card = document.querySelectorAll('.card');
 let theme;
 
 
@@ -16,14 +17,19 @@ function darkMode() {
 
     rootSCSS.style.setProperty('--color-secondary', '#000000');
 
-    // TODO this should only happen if we're on the blog detail page
     if (backButton) {
         backButton.classList.toggle('btn-outline-secondary');
         backButton.classList.toggle('btn-outline-success');
     }
     if(blogPostTitle){
         blogPostTitle.forEach( e =>{
-            e.classList.toggle('text-white');
+            e.classList.add('text-white');
+        })
+    }
+    if(card){
+        card.forEach(e => {
+            e.classList.add('bg-dark');
+            e.classList.remove('bg-light');
         })
     }
 
@@ -45,12 +51,18 @@ function lightMode() {
         backButton.classList.toggle('btn-outline-secondary');
         backButton.classList.toggle('btn-outline-success');
     }
-    //  if(blogPostTitle){
-    //     blogPostTitle.forEach( e =>{
-    //         e.classList.toggle('text-white');
-    //     })
-    // }
+     if(blogPostTitle){
+        blogPostTitle.forEach( e =>{
+            e.classList.remove('text-white');
+        })
+    }
 
+     if(card){
+        card.forEach(e => {
+            e.classList.remove('bg-dark');
+            e.classList.add('bg-light');
+        })
+    }
     //save setting
     localStorage.setItem('theme', 'light');
 
