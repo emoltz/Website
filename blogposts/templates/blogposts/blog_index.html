@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block mainContent %}
+
     {% load static %}
     {% load markdown_extras %}
     <h1 class="display-1 text-center">The Bloggo</h1>
     <hr class="mt-auto">
 
-
     <div class="container">
 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 card-group gap-3">
             {% for post in posts %}
 
-                <div class="col card border-secondary">
+                <div class="col card ">
 
                     <a href="{% url 'blog_detail' pk=post.pk %}">
                         <img src="{{ post.image.url }}" alt="Click for detailed view" class="card-img">
