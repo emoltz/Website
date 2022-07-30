@@ -9,39 +9,33 @@
 
     <div class="container">
 
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 card-group gap-3">
-            {% for post in posts %}
+        {% for post in posts %}
 
-                <div class="col card ">
+            <div class="col card ">
 
-                    <a href="{% url 'blog_detail' pk=post.pk %}">
-                        <img src="{{ post.image.url }}" alt="Click for detailed view" class="card-img">
-                    </a>
-                    <div class="card-body">
-                        <h1 class="card-title text-decoration-none">
-                            <a href="{% url 'blog_detail' pk=post.pk %}" id="blog_post_title">
-                                {{ post.title }}
-                            </a>
-                        </h1>
-                        <small class="text-secondary">
-                            {{ post.created_on.date }} | Categories:
-                            {% for category in post.categories.all %}
-                                {{ category.name }}
-                            {% endfor %}
-                        </small>
-                        <p class="card-text">
-                            {{ post.body | slice:":400" | markdown | safe }}
-                            <a href="{% url 'blog_detail' pk=post.pk %}">...</a>
-                        </p>
-
-
-                    </div>
-
+                <a href="{% url 'blog_detail' pk=post.pk %}">
+                    <img src="{{ post.image.url }}" alt="Click for detailed view" class="card-img">
+                </a>
+                <div class="card-body">
+                    <h1 class="card-title text-decoration-none">
+                        <a href="{% url 'blog_detail' pk=post.pk %}" id="blog_post_title">
+                            {{ post.title }}
+                        </a>
+                    </h1>
+                    <small class="text-secondary">
+                        {{ post.created_on.date }} | Categories:
+                        {% for category in post.categories.all %}
+                            {{ category.name }}
+                        {% endfor %}
+                    </small>
+                    <p class="card-text">
+                        {{ post.body | slice:":400" | markdown | safe }}
+                        <a href="{% url 'blog_detail' pk=post.pk %}">...</a>
+                    </p>
 
                 </div>
-            {% endfor %}
-        </div>
 
+            </div>
+        {% endfor %}
     </div>
-
 {% endblock %}
