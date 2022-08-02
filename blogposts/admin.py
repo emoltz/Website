@@ -3,6 +3,7 @@ from .models import *
 
 
 class PostAdmin(admin.ModelAdmin):
+    # list_display = ('title',)
     pass
 
 
