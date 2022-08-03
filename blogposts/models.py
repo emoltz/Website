@@ -18,10 +18,8 @@ class Post(models.Model):
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
-    categories = models.ManyToManyField('Category', related_name='posts')
-    image = models.ImageField(upload_to='uploaded_images/', default='', null=True, blank=True)
-
-    # TODO a way to get the name of the image that was uploaded?
+    categories = models.ManyToManyField('Category', related_name='posts', default="")
+    image = models.ImageField(upload_to='uploaded_images/', default='images/uploaded_images/bmo.png', null=True, blank=True)
 
     def __str__(self):
         date = str(self.created_on.date())

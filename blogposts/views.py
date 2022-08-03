@@ -1,9 +1,13 @@
-from django.shortcuts import render
 from django.views.generic import *
-import logging
 from blogposts.models import *
+from .forms import *
 
-logger = logging.getLogger(__name__)
+
+class BlogCreate(CreateView):
+    model = Post
+    fields = ['title', 'body', 'categories', 'image']
+    template_name = 'blogposts/blog_form.html'
+    success_url = '/blog'
 
 
 class BlogHomepage(ListView):
