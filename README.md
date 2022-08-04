@@ -18,3 +18,9 @@ Also, just got **markdown support** baby!! Very exciting.
 Got a new navbar working, pushed to main branch. Also got `scss` support, which will be helpful with the more complex frontend animations and things. It was a complicated process -- there is a Django-specific tool that compiles the `scss` into `css` that needed to be installed manually, so there was some trial and error. 
 
 <img width="597" alt="Screen Shot 2022-07-29 at 8 09 25 AM" src="https://user-images.githubusercontent.com/33405530/181755452-1d05e030-1af0-4038-bc58-75a0b1596d66.png">
+
+## July 31
+Getting all the backend models to work properly... just a slow grind!
+
+## August 2
+Trying to add some features that will allow me to edit the blog post fromt he front end if I am logged in to the site. This should be finished soon! I am also taking some time to learn `THREE.js` to add some custom 3D models to the site :). 
