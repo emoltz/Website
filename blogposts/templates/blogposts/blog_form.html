@@ -2,9 +2,18 @@
 {% block mainContent %}
     <form action="" method="POST">
         {% csrf_token %}
+        <div>
 
-        {{ form }}
-        <button type="submit" class="btn btn-primary my-5">Submit</button>
+            Title: {{ form.title }}
+        </div>
+        <div>
+            Body: {{ form.body }}
+        </div>
+        <div>
+            Categories: {{ form.categories }}
+        </div>
+
+        <button type="submit" enctype="multipart/form-data" class="btn btn-primary my-5">Submit</button>
     </form>
 
 
