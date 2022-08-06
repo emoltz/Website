@@ -27,3 +27,6 @@ Trying to add some features that will allow me to edit the blog post fromt he fr
 
 ## August 5
 Still learning THREE.js. In the meantime, I made an edit button for the blog but it only works if you are logged in/authenticated. 
+
+## August 6
+After 3 hours of tinkering, I finally got webpack to play nice with Django and I am now able to put 3D stuff on the website :). 
