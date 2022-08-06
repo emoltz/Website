@@ -5,6 +5,7 @@ blog_django/keyGen.py
 __pycache__
 db.sqlite3
 media
+node_modules
 static/images/3d_assets
 
 # Backup files #
