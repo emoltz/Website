@@ -21,7 +21,6 @@
         </button>
         <p></p>
 
-        {% block blogContent %}
         <div class="row">
             <div class="col-lg-10">
                 <h1 class="display-2">{{ post.title }}</h1>
@@ -35,10 +34,7 @@
                 <p>{{ post.body | markdown | safe }}</p>
 
             </div>
-
-
         </div>
-        {% endblock %}
 
     </div>
 

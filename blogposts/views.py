@@ -16,7 +16,7 @@ class BlogUpdate(UpdateView):
     model = Post
     fields = ['title', 'body', 'categories']
     template_name = 'blogposts/blog_edit.html'
-    context_object_name = 'posts'
+    context_object_name = 'post'
     success_url = '/blog'
 
 
