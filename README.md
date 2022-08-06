@@ -24,3 +24,6 @@ Getting all the backend models to work properly... just a slow grind!
 
 ## August 2
 Trying to add some features that will allow me to edit the blog post fromt he front end if I am logged in to the site. This should be finished soon! I am also taking some time to learn `THREE.js` to add some custom 3D models to the site :). 
+
+## August 5
+Still learning THREE.js. In the meantime, I made an edit button for the blog but it only works if you are logged in/authenticated. 
