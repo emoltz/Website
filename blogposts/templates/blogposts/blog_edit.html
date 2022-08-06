@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load markdown_extras %}
+{% block mainContent %}
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <div class="text-center">
+            <div>
+
+                <h5>
+                    Title
+                </h5>
+                {{ form.title }}
+                <p></p>
+            </div>
+            <div>
+                <h5>
+
+                    Body:
+                </h5>
+                {{ form.body }}
+            </div>
+            <div>
+                <p></p>
+                <h5>
+
+                    Categories:
+                </h5>
+                <div>
+
+                {{ form.categories }}
+                </div>
+            </div>
+        <button type="submit" enctype="multipart/form-data" class="btn btn-primary my-5">Submit</button>
+        </div>
+
+    </form>
+
+
+
+{% endblock %}

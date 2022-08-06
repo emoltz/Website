@@ -12,14 +12,18 @@
     border: 3px solid black;
 
     ">
-        <hr>
+        <hr class="mt-2">
         <button class="btn btn-outline-secondary " id="back">
             <a href="{% url 'blog_home' %}" id="back-button">go back</a>
         </button>
+        <button class="btn btn-outline-secondary " id="edit">
+            <a href="{{ post.pk }}/edit" id="back-button">edit</a>
+        </button>
+        <p></p>
 
-
+        {% block blogContent %}
         <div class="row">
-            <div class="col-8">
+            <div class="col-lg-10">
                 <h1 class="display-2">{{ post.title }}</h1>
                 <small>
                     {{ post.created_on }} | Categories:
@@ -32,8 +36,9 @@
 
             </div>
 
-        </div>
 
+        </div>
+        {% endblock %}
 
     </div>
 
