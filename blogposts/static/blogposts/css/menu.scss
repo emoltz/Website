@@ -303,6 +303,11 @@ input:checked + .slider:before {
     margin-bottom: 5px;
 }
 
+.remove{
+  color:var(--accent);
+  margin-bottom: 5px;
+}
+
 .bg-light{
   transition: background-color 200ms;
 }

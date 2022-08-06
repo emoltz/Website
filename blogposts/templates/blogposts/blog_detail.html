@@ -3,7 +3,7 @@
 {% block mainContent %}
 
     <div class="container m-5">
-    <img src="{{ post.image.url }}" alt="" class=" img-fluid rounded mx-auto d-block img_bigger" style="
+        <img src="{{ post.image.url }}" alt="" class=" img-fluid rounded mx-auto d-block img_bigger" style="
     width: 100%;
     height:300px;
     background-size: cover;
@@ -16,9 +16,16 @@
         <button class="btn btn-outline-secondary " id="back">
             <a href="{% url 'blog_home' %}" id="back-button">go back</a>
         </button>
-        <button class="btn btn-outline-secondary " id="edit">
-            <a href="{{ post.pk }}/edit" id="back-button">edit</a>
-        </button>
+
+
+        {% if user.is_authenticated %}
+            <button class="btn btn-outline-secondary " id="edit">
+                <a href="{{ post.pk }}/edit" id="back-button">edit</a>
+                <!--TODO make separate class for this button to remove the link color styling -->
+            </button>
+        {% endif %}
+
+
         <p></p>
 
         <div class="row">
