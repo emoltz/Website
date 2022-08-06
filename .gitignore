@@ -1,4 +1,6 @@
 *.log
+blog_django/keyGen.py
+blog_django/key.py
 *.pot
 *.pyc
 __pycache__
