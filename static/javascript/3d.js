@@ -81,7 +81,7 @@ mesh3.position.x = 1;
 //LIGHTS
 
 
-const directionalLight = new THREE.DirectionalLight('#ffffff', 1)
+const directionalLight = new THREE.DirectionalLight('#ffffff', 2)
 directionalLight.position.set(1, 1, 0);
 
 scene.add(mesh1, mesh2, mesh3, directionalLight);
@@ -143,7 +143,7 @@ const cameraGroup = new THREE.Group();
 scene.add(cameraGroup);
 
 // Base camera
-const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.height, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(40, sizes.width / sizes.height, 0.1, 100)
 camera.position.z = 6
 cameraGroup.add(camera)
 
