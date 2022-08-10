@@ -6,6 +6,7 @@ __pycache__
 db.sqlite3
 media
 static/images/3d_assets
+node_modules
 
 # Backup files #
 *.bak

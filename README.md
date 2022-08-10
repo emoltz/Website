@@ -30,3 +30,6 @@ Still learning THREE.js. In the meantime, I made an edit button for the blog but
 
 ## August 6
 After 3 hours of tinkering, I finally got webpack to play nice with Django and I am now able to put 3D stuff on the website :). 
+
+## August 10
+Learning a lot of THREE.js for the site. It's going well, but I am learning that integrating it into my site that was not up-front meant for 3D is extremely challenging. I may be a bit over my head, so I might want to scale back my ambitions a bit. I am thinking I will still install webpack, but use the 3D elements in a much more subtle way. Perhaps I could make a new nav bar that is 3D-animated. 
