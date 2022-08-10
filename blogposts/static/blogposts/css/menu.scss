@@ -298,50 +298,61 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-#back-button{
-    color:var(--accent);
-    margin-bottom: 5px;
-}
-
-.remove{
-  color:var(--accent);
+#back-button {
+  color: var(--accent);
   margin-bottom: 5px;
 }
 
-.bg-light{
+.remove {
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+
+.bg-light {
   transition: background-color 200ms;
 }
 
-.bg-dark{
+.bg-dark {
   transition: background-color 200ms;
 }
-.webgl
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    outline: none;
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
 }
 
 
-.section
-{
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-    font-family: var(--font-primary);
-    color: var(--color-primary);
-    text-transform: uppercase;
-    font-size: 14vmin;
-    padding-left: 10%;
-    padding-right: 10%;
+.section {
+  //looks like the below property is forcing the issue:
+  //display: flex;
+
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  font-family: var(--font-primary);
+
+  padding-left: 10%;
+  padding-right: 10%;
+
 }
 
-section:nth-child(odd)
-{
-    justify-content: flex-end;
+.sectionHeading {
+  color: var(--color-primary);
+  text-transform: uppercase;
+  font-size: 14vmin;
 }
-.darkbg{
+
+.description-text{
+  color: #cccccc;
+}
+
+
+section:nth-child(odd) {
+  justify-content: flex-end;
+}
+
+.darkbg {
   background-color: #212529;
 }
