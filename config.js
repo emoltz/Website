@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './src/3d.js',
+    entry: './static/javascript/3d.js',
     mode: 'development',
     output: {
         filename: 'index.js',
