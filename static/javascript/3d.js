@@ -43,14 +43,21 @@ gradientTexture.magFilter = THREE.NearestFilter;
 const material = new THREE.MeshToonMaterial(
     {
         color: parameters.materialColor,
-        gradientMap: gradientTexture
+        gradientMap: gradientTexture,
+        wireframe: true
     }
 )
 
 const objectsDistance = 4;
 
+const wireGeo = new THREE.SphereGeometry(1, 2, 32);
+const wireframe = new THREE.WireframeGeometry(wireGeo)
+
+scene.add(wireframe)
+
+
 const mesh1 = new THREE.Mesh(
-    new THREE.TorusGeometry(1, .4, 16, 60),
+    new THREE.TorusGeometry(1, .4, 16, 32),
     material
 )
 const mesh2 = new THREE.Mesh(
@@ -211,16 +218,16 @@ const tick = () => {
     //animate meshes
 
 
-    // for (const mesh of sectionMeshes) {
-    //     mesh.rotation.x += deltaTime * .1;
-    //     mesh.rotation.y += deltaTime * .12;
-    // }
-
-
     for (const mesh of sectionMeshes) {
-        mesh.rotation.x = scrollY / sizes.height * objectsDistance *.5;
-        mesh.rotation.y = scrollY / sizes.height * objectsDistance *.5;
+        mesh.rotation.x += deltaTime * .15;
+        mesh.rotation.y += deltaTime * .15;
     }
+
+
+    // for (const mesh of sectionMeshes) {
+    //     mesh.rotation.x = scrollY / sizes.height * objectsDistance *.5;
+    //     mesh.rotation.y = scrollY / sizes.height * objectsDistance *.5;
+    // }
 
     // Render
     renderer.render(scene, camera)
