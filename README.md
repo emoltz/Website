@@ -33,3 +33,6 @@ After 3 hours of tinkering, I finally got webpack to play nice with Django and I
 
 ## August 10
 Learning a lot of THREE.js for the site. It's going well, but I am learning that integrating it into my site that was not up-front meant for 3D is extremely challenging. I may be a bit over my head, so I might want to scale back my ambitions a bit. I am thinking I will still install webpack, but use the 3D elements in a much more subtle way. Perhaps I could make a new nav bar that is 3D-animated. 
+
+## August 11
+Strange issue with the `canvas` element -- some items outside the canvas were clickable and some items were not. Very confusing. Finally figured out that it was a CSS issue: I needed to add a `position: relative;` property to the footer class. 
