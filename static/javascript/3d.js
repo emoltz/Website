@@ -50,10 +50,10 @@ const material = new THREE.MeshToonMaterial(
 
 const objectsDistance = 4;
 
-const wireGeo = new THREE.SphereGeometry(1, 2, 32);
-const wireframe = new THREE.WireframeGeometry(wireGeo)
-
-scene.add(wireframe)
+// const wireGeo = new THREE.SphereGeometry(1, 2, 32);
+// const wireframe = new THREE.WireframeGeometry(wireGeo)
+//
+// scene.add(wireframe)
 
 
 const mesh1 = new THREE.Mesh(
@@ -218,16 +218,16 @@ const tick = () => {
     //animate meshes
 
 
-    for (const mesh of sectionMeshes) {
-        mesh.rotation.x += deltaTime * .15;
-        mesh.rotation.y += deltaTime * .15;
-    }
-
-
     // for (const mesh of sectionMeshes) {
-    //     mesh.rotation.x = scrollY / sizes.height * objectsDistance *.5;
-    //     mesh.rotation.y = scrollY / sizes.height * objectsDistance *.5;
+    //     mesh.rotation.x += deltaTime * .15;
+    //     mesh.rotation.y += deltaTime * .15;
     // }
+
+
+    for (const mesh of sectionMeshes) {
+        mesh.rotation.x = scrollY / sizes.height * objectsDistance *.5;
+        mesh.rotation.y = scrollY / sizes.height * objectsDistance *.5;
+    }
 
     // Render
     renderer.render(scene, camera)

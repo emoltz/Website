@@ -21,13 +21,13 @@
     ">
         <hr class="mt-2">
         <button class="btn btn-outline-secondary " id="back">
-            <a href="{% url 'blog_home' %}" id="back-button">go back</a>
+            <a href="{% url 'blog_home' %}" id="remove-link-decoration">go back</a>
         </button>
 
 
         {% if user.is_authenticated %}
             <button class="btn btn-outline-secondary " id="edit">
-                <a href="{{ post.pk }}/edit" id="back-button">edit</a>
+                <a href="{{ post.pk }}/edit" id="remove-link-decoration">edit</a>
                 <!--TODO make separate class for this button to remove the link color styling -->
             </button>
         {% endif %}
