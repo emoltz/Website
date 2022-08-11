@@ -251,6 +251,9 @@ input:checked + .slider:before {
   left: 0;
   outline: none; }
 
+.footer {
+  position: relative; }
+
 .section {
   top: 20vmin;
   align-items: center;

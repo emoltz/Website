@@ -323,6 +323,10 @@ input:checked + .slider:before {
   outline: none;
 }
 
+.footer{
+  position: relative;
+}
+
 
 .section {
   //looks like the below property is forcing the issue:
