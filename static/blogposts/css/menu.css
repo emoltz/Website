@@ -39,7 +39,7 @@ h2 {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap; }
   .main-navigation-toggle + label {
-    position: sticky;
+    position: fixed;
     top: calc(var(--space));
     left: calc(var(--space));
     cursor: pointer;

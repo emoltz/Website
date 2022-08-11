@@ -48,7 +48,7 @@ h2 {
   white-space: nowrap;
 
   + label {
-    position: sticky;
+    position: fixed;
     top: calc(var(--space));
     left: calc(var(--space));
     cursor: pointer;
