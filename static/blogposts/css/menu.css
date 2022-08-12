@@ -256,6 +256,7 @@ input:checked + .slider:before {
 
 .section {
   top: 20vmin;
+  width: 100vmin;
   align-items: center;
   height: 100vh;
   position: relative;
@@ -263,16 +264,24 @@ input:checked + .slider:before {
   padding-left: 10%;
   padding-right: 10%; }
 
+.text-box {
+  background-color: rgba(56, 74, 56, 0.8);
+  border: #cccccc solid 7px;
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px; }
+
 .sectionHeading {
-  color: var(--color-primary);
+  color: #cccccc;
   text-transform: uppercase;
   font-size: 10vmin; }
 
 .description-text {
   color: #cccccc; }
 
-section:nth-child(odd) {
-  justify-content: flex-end; }
+section:nth-child(odd) .text-box {
+  text-align: right; }
 
 .darkbg {
   background-color: #212529; }

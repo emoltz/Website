@@ -74,7 +74,7 @@ mesh2.position.y = -objectsDistance;
 mesh3.position.y = -objectsDistance * 2;
 
 mesh1.position.x = 1;
-mesh2.position.x = -1;
+mesh2.position.x = 1.9;
 mesh3.position.x = 1;
 
 

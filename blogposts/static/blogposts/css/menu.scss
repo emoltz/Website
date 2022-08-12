@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:900&display=swap');
 
 :root {
-  //--color-primary: #002626;
   --color-primary: #656d4a;
-  //--color-secondary: #F0F7EE;
   --color-secondary: #F0F7EE;
   --duration: 1s;
   --nav-duration: calc(var(--duration) / 4);
@@ -332,6 +330,7 @@ input:checked + .slider:before {
   //looks like the below property is forcing the issue:
   //display: flex;
   top: 20vmin;
+  width: 100vmin;
 
   align-items: center;
   height: 100vh;
@@ -343,19 +342,32 @@ input:checked + .slider:before {
 
 }
 
+.text-box{
+  background-color: rgba(56, 74, 56, .8);
+  //background-blend-mode: overlay;
+  border: #cccccc solid 7px;
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
 .sectionHeading {
-  color: var(--color-primary);
+  //color: var(--color-primary);
+  color: #cccccc;
   text-transform: uppercase;
   font-size: 10vmin;
 }
 
 .description-text{
   color: #cccccc;
+  //color: #000000;
 }
 
 
-section:nth-child(odd) {
-  justify-content: flex-end;
+section:nth-child(odd) .text-box{
+  //justify-content: right;
+  text-align: right;
 }
 
 .darkbg {

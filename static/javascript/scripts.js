@@ -8,7 +8,6 @@ const blogPostTitle = document.querySelectorAll('#blog_post_title');
 const card = document.querySelectorAll('.card');
 let theme;
 
-
 function darkMode() {
     allContent.classList.remove('bg-light');
     allContent.classList.add('bg-dark');
@@ -44,7 +43,7 @@ function lightMode() {
     allContent.classList.remove('bg-dark');
     allContent.classList.add('bg-light');
     allContent.classList.remove('text-white');
-    rootSCSS.style.setProperty('--color-primary', '#656d4a');
+    rootSCSS.style.setProperty('--color-primary', '#656d4a'); //TODO find a way to link this to the SCSS
     rootSCSS.style.setProperty('--color-secondary', '#F0F7EE');
 
     if (backButton) {
