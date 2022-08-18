@@ -1,6 +1,7 @@
 import * as THREE from 'three'
-// import * as dat from 'lil-gui'
+import * as dat from 'lil-gui'
 import gsap from 'gsap'
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 
 /**
  * Debug
@@ -10,14 +11,6 @@ import gsap from 'gsap'
 const parameters = {
     materialColor: '#a1a29a'
 }
-
-// gui
-//     .addColor(parameters, 'materialColor')
-//     .onChange(() => {
-//             material.color.set(parameters.materialColor);
-//             particlesMaterial.color.set(parameters.materialColor)
-//         }
-//     )
 
 
 /**
@@ -222,7 +215,6 @@ const tick = () => {
     //     mesh.rotation.x += deltaTime * .15;
     //     mesh.rotation.y += deltaTime * .15;
     // }
-
 
     for (const mesh of sectionMeshes) {
         mesh.rotation.x = scrollY / sizes.height * objectsDistance *.5;
