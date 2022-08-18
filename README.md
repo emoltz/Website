@@ -38,3 +38,8 @@ Learning a lot of THREE.js for the site. It's going well, but I am learning that
 Strange issue with the `canvas` element -- some items outside the canvas were clickable and some items were not. Very confusing. Finally figured out that it was a CSS issue: I needed to add a `position: relative;` property to the footer class. 
 Got the 3D elements working and pushed to master. 
 <img width="1128" alt="Screen Shot 2022-08-11 at 12 08 50 PM" src="https://user-images.githubusercontent.com/33405530/184179370-fa3837c0-fc75-4636-861e-4e4fa36c4bab.png">
+
+## August 18
+After some more time to learn THREE.js, I finally was able to create the models I wanted in Blender and import them into a test directory where I could apply the Bloom effects and etc. It doesn't look *exactly* how I'd like, but hopefully I can improve on that later. Now comes the work of swapping out the dummy models for the custom ones, which will be a challenge since I believe they are different object types (the same functions won't work, I will have to re-write everything). 
+
+I also want to re-make the text boxes on the main page to look like computer windows. 
