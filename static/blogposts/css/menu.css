@@ -265,8 +265,8 @@ input:checked + .slider:before {
   padding-right: 10%; }
 
 .text-box {
-  background-color: rgba(56, 74, 56, 0.8);
-  border: #cccccc solid 7px;
+  background-color: rgba(97, 106, 74, 0.7);
+  border: #414833 solid 7px;
   border-radius: 8px;
   padding-left: 10px;
   padding-bottom: 10px;

@@ -1,23 +1,16 @@
 import * as THREE from 'three'
-// import * as dat from 'lil-gui'
+import * as dat from 'lil-gui'
 import gsap from 'gsap'
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 
 /**
  * Debug
  */
-// const gui = new dat.GUI()
+const gui = new dat.GUI()
 
 const parameters = {
     materialColor: '#a1a29a'
 }
-
-// gui
-//     .addColor(parameters, 'materialColor')
-//     .onChange(() => {
-//             material.color.set(parameters.materialColor);
-//             particlesMaterial.color.set(parameters.materialColor)
-//         }
-//     )
 
 
 /**
@@ -49,11 +42,6 @@ const material = new THREE.MeshToonMaterial(
 )
 
 const objectsDistance = 4;
-
-// const wireGeo = new THREE.SphereGeometry(1, 2, 32);
-// const wireframe = new THREE.WireframeGeometry(wireGeo)
-//
-// scene.add(wireframe)
 
 
 const mesh1 = new THREE.Mesh(
@@ -222,7 +210,6 @@ const tick = () => {
     //     mesh.rotation.x += deltaTime * .15;
     //     mesh.rotation.y += deltaTime * .15;
     // }
-
 
     for (const mesh of sectionMeshes) {
         mesh.rotation.x = scrollY / sizes.height * objectsDistance *.5;
