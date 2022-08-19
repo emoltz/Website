@@ -43,3 +43,7 @@ Got the 3D elements working and pushed to master.
 After some more time to learn THREE.js, I finally was able to create the models I wanted in Blender and import them into a test directory where I could apply the Bloom effects and etc. It doesn't look *exactly* how I'd like, but hopefully I can improve on that later. Now comes the work of swapping out the dummy models for the custom ones, which will be a challenge since I believe they are different object types (the same functions won't work, I will have to re-write everything). 
 
 I also want to re-make the text boxes on the main page to look like computer windows. 
+
+## August 19
+Made some old-school macos 7-style windows:
+<img width="835" alt="Screen Shot 2022-08-19 at 11 03 57 AM" src="https://user-images.githubusercontent.com/33405530/185648900-0291517c-c959-4b08-a6c5-9b1c946a8868.png">
