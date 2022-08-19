@@ -1,5 +1,19 @@
-:root {
+@font-face {
+    font-family: "Virtue";
+    src: local('fonts/virtue.ttf');
+}
 
+@font-face {
+    font-family: 'Chicago Plain';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Chicago Plain'), url('fonts/Chicago.woff') format('woff');
+}
+
+:root {
+    /*//  menu bar*/
+    --windowColor: #b2b2b2;
+    --borderWidth: 5px;
 }
 
 .imgIcon {
@@ -10,6 +24,53 @@ a:link {
     text-decoration: none;
 }
 
-.text-black{
-    color:black;
+.text-black {
+    color: black;
+}
+
+/*//MENU BAR*/
+
+.windowTile {
+    /*background-color: grey;*/
+    height: 17px;
+    width: 80%;
+    /*margin: auto;*/
+    border: 1px outset black;
+    background: url(cssImages/windowborderleft.png), url(cssImages/windowborderright.png),
+    url(cssImages/windowbordercenter.png), #fff;
+    background-position: 0 bottom, 99.95% bottom;
+    background-repeat: no-repeat;
+    /*bottom: 0;*/
+}
+
+.windowTitleName {
+    display: inline-block;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #d3d3d3;
+    font-family: 'Chicago Plain', serif;
+    font-weight: normal;
+    color: black;
+    font-size: 10px;
+    bottom:7px;
+
+
+}
+
+.menuBarParent {
+    text-align: center;
+}
+
+.menuBarBody {
+    width: auto;
+    margin-top: -9px;
+    position: relative;
+    padding: 1vmin 1vmin;
+    /* TODO make translucency */
+    background-color: #dcdcdc;
+    border-left: var(--windowColor) solid var(--borderWidth);
+    border-right: var(--windowColor) solid var(--borderWidth);
+    border-bottom: var(--windowColor) solid var(--borderWidth);
+    border-top: #525252 solid 1px;
 }
