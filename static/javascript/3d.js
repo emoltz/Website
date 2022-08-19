@@ -5,6 +5,7 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import {EffectComposer} from "three/examples/jsm/postprocessing/EffectComposer.js";
 import {RenderPass} from "three/examples/jsm/postprocessing/RenderPass.js";
 import {UnrealBloomPass} from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+import {SMAAPass} from "three/examples/jsm/postprocessing/SMAAPass";
 
 /**
  * Debug
@@ -18,7 +19,7 @@ const parameters = {
 const params = {
     exposure: 1.4,
     bloomStrength: 2.448,
-    bloomThreshold: 0.619,
+    bloomThreshold: 0.9,
     bloomRadius: .55,
     rValue: 100,
     gValue: 100,
@@ -56,7 +57,7 @@ let computerModel = null;
 let computerMaterial = null;
 const gltfLoader = new GLTFLoader();
 gltfLoader.load(
-    'static/images/3d_assets/exports/pc2.gltf',
+    'static/images/3d_assets/exports/pc5.gltf',
     (gltf) => {
         console.log("Success");
         computerModel = gltf.scene;
@@ -230,9 +231,17 @@ window.addEventListener('mousemove', (event) => {
  * Bloom Pass
  */
 
+const renderTarget = new THREE.WebGLRenderTarget(
+    800,
+    600,{
+        samples: 3
+    }
+)
+
+const smaaPass = new SMAAPass();
 
 
-const effectComposer = new EffectComposer(renderer);
+const effectComposer = new EffectComposer(renderer, renderTarget);
 effectComposer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 const renderPass = new RenderPass(scene, camera);
 
@@ -248,6 +257,7 @@ bloomPass.radius = params.bloomRadius;
 
 effectComposer.addPass(renderPass);
 effectComposer.addPass(bloomPass);
+// effectComposer.addPass(smaaPass);
 
 
 gui.add( params, 'bloomThreshold', 0.0, 1.0 ).onChange( function ( value ) {
@@ -322,12 +332,8 @@ const tick = () => {
     if(computerModel){
         // computerModel.rotation.x = scrollY / sizes.height * objectsDistance * .5;
         computerModel.rotation.x = scrollY / sizes.height * objectsDistance * .2;
-        computerModel.rotation.y = scrollY / sizes.height * objectsDistance * .5;
+        computerModel.rotation.y = - scrollY / sizes.height * objectsDistance * .5;
         // computerModel.rotation.y += deltaTime * .15
-    }
-
-    if(computerMaterial){
-        // computerMaterial.emissive.r = 0;
     }
 
     // Render

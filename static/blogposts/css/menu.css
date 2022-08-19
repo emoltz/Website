@@ -256,7 +256,7 @@ input:checked + .slider:before {
 
 .section {
   top: 20vmin;
-  width: 100vmin;
+  width: 120vmin;
   align-items: center;
   height: 100vh;
   position: relative;

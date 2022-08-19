@@ -331,7 +331,7 @@ input:checked + .slider:before {
   //looks like the below property is forcing the issue:
   //display: flex;
   top: 20vmin;
-  width: 100vmin;
+  width: 120vmin;
 
   align-items: center;
   height: 100vh;

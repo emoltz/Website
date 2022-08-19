@@ -12,7 +12,9 @@
 
 :root {
     /*//  menu bar*/
-    --windowColor: #b2b2b2;
+    --greyWindow: #b2b2b2;
+    --yellowWindow: #9a9a17;
+    --greenWindow: #457a45;
     --borderWidth: 5px;
 }
 
@@ -68,9 +70,9 @@ a:link {
     position: relative;
     padding: 1vmin 1vmin;
     /* TODO make translucency */
-    background-color: #dcdcdc;
-    border-left: var(--windowColor) solid var(--borderWidth);
-    border-right: var(--windowColor) solid var(--borderWidth);
-    border-bottom: var(--windowColor) solid var(--borderWidth);
+    background-color: rgba(220, 220, 220, 0.85);
+    border-left: var(--greyWindow) solid var(--borderWidth);
+    border-right: var(--greyWindow) solid var(--borderWidth);
+    border-bottom: var(--greyWindow) solid var(--borderWidth);
     border-top: #525252 solid 1px;
 }
