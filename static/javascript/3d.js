@@ -2,6 +2,10 @@ import * as THREE from 'three'
 import * as dat from 'lil-gui'
 import gsap from 'gsap'
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
+import {EffectComposer} from "three/examples/jsm/postprocessing/EffectComposer.js";
+import {RenderPass} from "three/examples/jsm/postprocessing/RenderPass.js";
+import {UnrealBloomPass} from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+import {SMAAPass} from "three/examples/jsm/postprocessing/SMAAPass";
 
 /**
  * Debug
@@ -12,6 +16,15 @@ const parameters = {
     materialColor: '#a1a29a'
 }
 
+const params = {
+    exposure: 1.4,
+    bloomStrength: 2.448,
+    bloomThreshold: 0.9,
+    bloomRadius: .55,
+    rValue: 100,
+    gValue: 100,
+    bValue: 100,
+};
 
 /**
  * Base
@@ -21,10 +34,6 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
-
-/**
- * Test cube
- */
 
 //materials/texture
 
@@ -43,6 +52,40 @@ const material = new THREE.MeshToonMaterial(
 
 const objectsDistance = 4;
 
+let computerModel = null;
+// let material = null;
+let computerMaterial = null;
+const gltfLoader = new GLTFLoader();
+gltfLoader.load(
+    'static/images/3d_assets/exports/pc5.gltf',
+    (gltf) => {
+        console.log("Success");
+        computerModel = gltf.scene;
+        console.log(computerModel)
+
+        let material = computerModel.children[0].children[0].material;
+        computerMaterial = material;
+        //changes color of emission
+        material.emissive.r = params.rValue;
+        material.emissive.g = params.gValue;
+        material.emissive.b = params.bValue;
+
+        //moves model into position
+        computerModel.position.y = -1;
+        computerModel.position.x = 1;
+        computerModel.rotation.x = .5;
+
+
+        scene.add(computerModel);
+
+    },
+    () => {
+        console.log("Progress");
+    },
+    () => {
+        console.log("Error with model");
+    }
+)
 
 const mesh1 = new THREE.Mesh(
     new THREE.TorusGeometry(1, .4, 16, 32),
@@ -72,9 +115,10 @@ mesh3.position.x = 1;
 const directionalLight = new THREE.DirectionalLight('#ffffff', 2)
 directionalLight.position.set(1, 1, 0);
 
-scene.add(mesh1, mesh2, mesh3, directionalLight);
+scene.add(mesh2, mesh3, directionalLight);
 
 const sectionMeshes = [mesh1, mesh2, mesh3];
+const sectionMeshesNew = [computerModel];
 
 //PARTICLES!
 
@@ -184,6 +228,75 @@ window.addEventListener('mousemove', (event) => {
 })
 
 /**
+ * Bloom Pass
+ */
+
+const renderTarget = new THREE.WebGLRenderTarget(
+    800,
+    600,{
+        samples: 3
+    }
+)
+
+const smaaPass = new SMAAPass();
+
+
+const effectComposer = new EffectComposer(renderer, renderTarget);
+effectComposer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+const renderPass = new RenderPass(scene, camera);
+
+const bloomPass = new UnrealBloomPass(
+    new THREE.Vector2(window.innerWidth, window.innerHeight),
+    1.5,
+    .4,
+    .85
+);
+bloomPass.threshold = params.bloomThreshold;
+bloomPass.strength = params.bloomStrength;
+bloomPass.radius = params.bloomRadius;
+
+effectComposer.addPass(renderPass);
+effectComposer.addPass(bloomPass);
+// effectComposer.addPass(smaaPass);
+
+
+gui.add( params, 'bloomThreshold', 0.0, 1.0 ).onChange( function ( value ) {
+
+    bloomPass.threshold = Number( value );
+
+} );
+gui.add( params, 'bloomStrength', 0.0, 3.0 ).onChange( function ( value ) {
+
+    bloomPass.strength = Number( value );
+
+} );
+
+gui.add( params, 'bloomRadius', 0.0, 1.0 ).step( 0.01 ).onChange( function ( value ) {
+
+    bloomPass.radius = Number( value );
+
+} );
+//
+// gui.add( params, 'rValue', 0.0, 1.0 ).step( 0.01 ).onChange( function ( value ) {
+//
+//     computerMaterial.emissive.r = Number(value);
+//
+// } );
+//
+// gui.add( params, 'gValue', 0.0, 1.0 ).step( 0.01 ).onChange( function ( value ) {
+//
+//     computerMaterial.emissive.g = Number(value);
+//
+// } );
+//
+// gui.add( params, 'bValue', 0.0, 1.0 ).step( 0.01 ).onChange( function ( value ) {
+//
+//     computerMaterial.emissive.b = Number(value);
+//
+// } );
+
+
+/**
  * Animate
  */
 const clock = new THREE.Clock()
@@ -212,13 +325,20 @@ const tick = () => {
     // }
 
     for (const mesh of sectionMeshes) {
-        mesh.rotation.x = scrollY / sizes.height * objectsDistance *.5;
-        mesh.rotation.y = scrollY / sizes.height * objectsDistance *.5;
+        mesh.rotation.x = scrollY / sizes.height * objectsDistance * .5;
+        mesh.rotation.y = scrollY / sizes.height * objectsDistance * .5;
+    }
+
+    if(computerModel){
+        // computerModel.rotation.x = scrollY / sizes.height * objectsDistance * .5;
+        computerModel.rotation.x = scrollY / sizes.height * objectsDistance * .2;
+        computerModel.rotation.y = - scrollY / sizes.height * objectsDistance * .5;
+        // computerModel.rotation.y += deltaTime * .15
     }
 
     // Render
-    renderer.render(scene, camera)
-
+    // renderer.render(scene, camera);
+    effectComposer.render();
     // Call tick again on the next frame
     window.requestAnimationFrame(tick)
 }

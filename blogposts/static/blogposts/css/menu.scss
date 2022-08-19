@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:900&display=swap');
 
+
 :root {
   --color-primary: #656d4a;
   --color-secondary: #F0F7EE;
@@ -330,7 +331,7 @@ input:checked + .slider:before {
   //looks like the below property is forcing the issue:
   //display: flex;
   top: 20vmin;
-  width: 100vmin;
+  width: 120vmin;
 
   align-items: center;
   height: 100vh;
