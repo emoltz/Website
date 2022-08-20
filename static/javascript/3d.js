@@ -19,7 +19,7 @@ const parameters = {
 
 const params = {
     exposure: 1.4,
-    bloomStrength: 2.448,
+    bloomStrength: 1,
     bloomThreshold: 0.9,
     bloomRadius: .55,
     rValue: 100,
@@ -64,17 +64,18 @@ let computerModel = null;
 let computerMaterial = null;
 const gltfLoader = new GLTFLoader();
 gltfLoader.load(
-    'static/images/3d_assets/exports/pc_grey1.gltf',
+    'static/images/3d_assets/exports/testbox3_glow.gltf',
     (gltf) => {
         console.log("Success");
         computerModel = gltf.scene;
         console.log(computerModel)
+        scene.add(computerModel);
+        computerModel.children[0].children[0].material = backgroundMaterialCover;
 
-        // for(let i = 0; i < 83; i++){
-        //     computerModel.children[i].position.x = 2;
-        //     computerModel.children[i].scale(1, 1, 1)
-        //     // computerModel.children[i].position.z = 2;
-        // }
+        /**
+         * REF:
+         */
+
         // let material = computerModel.children[0].children[0].material;
         // computerMaterial = material;
         // //changes color of emission
@@ -87,14 +88,16 @@ gltfLoader.load(
         // computerModel.children[0].children[2].material = material;
 
         //moves model into position
-        computerModel.position.y = -1;
+
         computerModel.position.x = 1;
-        computerModel.rotation.x = .5;
+        computerModel.position.z = -1;
+        computerModel.rotation.z = -5;
+        computerModel.rotation.x = .3;
 
-        computerModel.children[0].children[1].material = backgroundMaterialCover;
+        // computerModel.rotation.z = 1.5;
 
+        // computerModel.children[0].children[1].material = backgroundMaterialCover;
 
-        scene.add(computerModel);
 
     },
     () => {
@@ -251,8 +254,8 @@ window.addEventListener('mousemove', (event) => {
 
 const renderTarget = new THREE.WebGLRenderTarget(
     800,
-    600,{
-        samples: 8
+    600, {
+        samples: 6
         // samples:
     }
 )
@@ -348,11 +351,9 @@ const tick = () => {
         mesh.rotation.y = scrollY / sizes.height * objectsDistance * .5;
     }
 
-    if(computerModel){
-        // computerModel.rotation.x = scrollY / sizes.height * objectsDistance * .5;
-        computerModel.rotation.x = scrollY / sizes.height * objectsDistance * .2;
-        computerModel.rotation.y = - scrollY / sizes.height * objectsDistance * .5;
-        // computerModel.rotation.y += deltaTime * .15
+    if (computerModel) {
+        // computerModel.rotation.x = scrollY / sizes.height * objectsDistance * .2;
+        computerModel.rotation.y = -scrollY / sizes.height * objectsDistance * .7;
     }
 
     // Render
