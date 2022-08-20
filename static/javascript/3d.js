@@ -13,8 +13,8 @@ import {SMAAPass} from "three/examples/jsm/postprocessing/SMAAPass";
 // const gui = new dat.GUI()
 
 const parameters = {
-    // materialColor: '#a1a29a'
-    materialColor: '#cbcbcb'
+    materialColor: '#a1a29a',
+    backgroundColor: new THREE.Color(0x212529)
 }
 
 const params = {
@@ -35,6 +35,7 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
+scene.background = parameters.backgroundColor;
 
 //materials/texture
 
@@ -51,6 +52,11 @@ const material = new THREE.MeshToonMaterial(
     }
 )
 
+const backgroundMaterialCover = new THREE.MeshBasicMaterial({
+    // color: parameters.backgroundColor
+    color: parameters.backgroundColor
+})
+
 const objectsDistance = 4;
 
 let computerModel = null;
@@ -58,7 +64,7 @@ let computerModel = null;
 let computerMaterial = null;
 const gltfLoader = new GLTFLoader();
 gltfLoader.load(
-    'static/images/3d_assets/exports/pc4.gltf',
+    'static/images/3d_assets/exports/pc_grey1.gltf',
     (gltf) => {
         console.log("Success");
         computerModel = gltf.scene;
@@ -75,7 +81,7 @@ gltfLoader.load(
         // material.emissive.r = params.rValue;
         // material.emissive.g = params.gValue;
         // material.emissive.b = params.bValue;
-        computerModel.children[0].material = material;
+        // computerModel.children[0].material = material;
         // computerModel.children[0].children[0].material = material;
         // computerModel.children[0].children[1].material = material;
         // computerModel.children[0].children[2].material = material;
@@ -84,6 +90,8 @@ gltfLoader.load(
         computerModel.position.y = -1;
         computerModel.position.x = 1;
         computerModel.rotation.x = .5;
+
+        computerModel.children[0].children[1].material = backgroundMaterialCover;
 
 
         scene.add(computerModel);
@@ -267,7 +275,7 @@ bloomPass.strength = params.bloomStrength;
 bloomPass.radius = params.bloomRadius;
 
 effectComposer.addPass(renderPass);
-// effectComposer.addPass(bloomPass);
+effectComposer.addPass(bloomPass);
 // effectComposer.addPass(smaaPass);
 
 
