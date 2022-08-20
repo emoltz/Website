@@ -10,10 +10,11 @@ import {SMAAPass} from "three/examples/jsm/postprocessing/SMAAPass";
 /**
  * Debug
  */
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 const parameters = {
-    materialColor: '#a1a29a'
+    // materialColor: '#a1a29a'
+    materialColor: '#cbcbcb'
 }
 
 const params = {
@@ -57,18 +58,27 @@ let computerModel = null;
 let computerMaterial = null;
 const gltfLoader = new GLTFLoader();
 gltfLoader.load(
-    'static/images/3d_assets/exports/pc5.gltf',
+    'static/images/3d_assets/exports/pc4.gltf',
     (gltf) => {
         console.log("Success");
         computerModel = gltf.scene;
         console.log(computerModel)
 
-        let material = computerModel.children[0].children[0].material;
-        computerMaterial = material;
-        //changes color of emission
-        material.emissive.r = params.rValue;
-        material.emissive.g = params.gValue;
-        material.emissive.b = params.bValue;
+        // for(let i = 0; i < 83; i++){
+        //     computerModel.children[i].position.x = 2;
+        //     computerModel.children[i].scale(1, 1, 1)
+        //     // computerModel.children[i].position.z = 2;
+        // }
+        // let material = computerModel.children[0].children[0].material;
+        // computerMaterial = material;
+        // //changes color of emission
+        // material.emissive.r = params.rValue;
+        // material.emissive.g = params.gValue;
+        // material.emissive.b = params.bValue;
+        computerModel.children[0].material = material;
+        // computerModel.children[0].children[0].material = material;
+        // computerModel.children[0].children[1].material = material;
+        // computerModel.children[0].children[2].material = material;
 
         //moves model into position
         computerModel.position.y = -1;
@@ -234,7 +244,8 @@ window.addEventListener('mousemove', (event) => {
 const renderTarget = new THREE.WebGLRenderTarget(
     800,
     600,{
-        samples: 3
+        samples: 8
+        // samples:
     }
 )
 
@@ -256,26 +267,26 @@ bloomPass.strength = params.bloomStrength;
 bloomPass.radius = params.bloomRadius;
 
 effectComposer.addPass(renderPass);
-effectComposer.addPass(bloomPass);
+// effectComposer.addPass(bloomPass);
 // effectComposer.addPass(smaaPass);
 
 
-gui.add( params, 'bloomThreshold', 0.0, 1.0 ).onChange( function ( value ) {
-
-    bloomPass.threshold = Number( value );
-
-} );
-gui.add( params, 'bloomStrength', 0.0, 3.0 ).onChange( function ( value ) {
-
-    bloomPass.strength = Number( value );
-
-} );
-
-gui.add( params, 'bloomRadius', 0.0, 1.0 ).step( 0.01 ).onChange( function ( value ) {
-
-    bloomPass.radius = Number( value );
-
-} );
+// gui.add( params, 'bloomThreshold', 0.0, 1.0 ).onChange( function ( value ) {
+//
+//     bloomPass.threshold = Number( value );
+//
+// } );
+// gui.add( params, 'bloomStrength', 0.0, 3.0 ).onChange( function ( value ) {
+//
+//     bloomPass.strength = Number( value );
+//
+// } );
+//
+// gui.add( params, 'bloomRadius', 0.0, 1.0 ).step( 0.01 ).onChange( function ( value ) {
+//
+//     bloomPass.radius = Number( value );
+//
+// } );
 //
 // gui.add( params, 'rValue', 0.0, 1.0 ).step( 0.01 ).onChange( function ( value ) {
 //
