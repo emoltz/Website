@@ -49,4 +49,6 @@ Made some old-school macos 7-style windows:
 <img width="835" alt="Screen Shot 2022-08-19 at 11 03 57 AM" src="https://user-images.githubusercontent.com/33405530/185648900-0291517c-c959-4b08-a6c5-9b1c946a8868.png">
 
 ## August 20
-The bloom effect is causing more problems than it is solving, so I am going to go back and re-do that section of the website. Sucks because of how long I spent trying to get the bloom render pass to work effectively. But alas... 
+The bloom effect is causing more problems than it is solving, so I am going to go back and re-do that section of the website. Sucks because of how long I spent trying to get the bloom render pass to work effectively. But alas...
+
+Update -- the new mesh looks ok with the bloom, and I only need 6 for the sample rate. Just using simpler models with an emission instead of a color seems to work pretty well. It's not exactly what I had in mind -- I wanted a toon effect, but when I assign the toon material to the custom mesh, it just turns black. Not sure why. I will work on that later though.
