@@ -75,4 +75,5 @@ a:link {
     border-bottom: var(--greyWindow) solid var(--borderWidth);
     border-top: #525252 solid 1px;
     font-size: 20px;
+    font-family: 'Virtue', serif;
 }
