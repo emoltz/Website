@@ -69,10 +69,10 @@ a:link {
     margin-top: -9px;
     position: relative;
     padding: 1vmin 1vmin;
-    /* TODO make translucency */
     background-color: rgba(220, 220, 220, 0.85);
     border-left: var(--greyWindow) solid var(--borderWidth);
     border-right: var(--greyWindow) solid var(--borderWidth);
     border-bottom: var(--greyWindow) solid var(--borderWidth);
     border-top: #525252 solid 1px;
+    font-size: 20px;
 }
