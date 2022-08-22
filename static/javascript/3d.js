@@ -61,10 +61,9 @@ const objectsDistance = 4;
 
 let computerModel = null;
 // let material = null;
-let computerMaterial = null;
 let gltfLoader = new GLTFLoader();
 gltfLoader.load(
-    'static/images/3d_assets/exports/testbox3_glow.gltf',
+    'static/images/3d_assets/exports/apple1.gltf',
     (gltf) => {
         console.log("Success");
         computerModel = gltf.scene;
@@ -91,14 +90,12 @@ gltfLoader.load(
 
         computerModel.position.x = 1;
         computerModel.position.z = -1;
-        computerModel.rotation.z = -5;
+        computerModel.rotation.z = -.2;
         computerModel.rotation.x = .3;
 
         // computerModel.rotation.z = 1.5;
 
         // computerModel.children[0].children[1].material = backgroundMaterialCover;
-
-
     },
     () => {
         console.log("Progress");
@@ -122,7 +119,30 @@ gltfLoader.load(
         floppyDisk.position.y = -objectsDistance;
         floppyDisk.position.x = 1.9;
         floppyDisk.rotation.z = .5;
-        floppyDisk.scale.set(.35,.35,.35);
+        floppyDisk.scale.set(.35, .35, .35);
+
+    },
+    () => {
+        console.log("Floppy Progress");
+    },
+    () => {
+        console.log("Error with model");
+    }
+)
+
+let pet = null;
+gltfLoader = new GLTFLoader();
+gltfLoader.load(
+    'static/images/3d_assets/exports/pet.gltf',
+    (gltf) => {
+        console.log("PET Success");
+        pet = gltf.scene;
+        console.log(pet)
+        scene.add(pet);
+        pet.children[0].children[0].material = backgroundMaterialCover;
+
+        pet.position.y = -objectsDistance * 2 - 1.5;
+        pet.position.x = 1;
 
     },
     () => {
@@ -379,10 +399,11 @@ const tick = () => {
         mesh.rotation.y = scrollY / sizes.height * objectsDistance * .5;
     }
 
-    if (computerModel && floppyDisk) {
+    if (computerModel && floppyDisk && pet) {
         // computerModel.rotation.x = scrollY / sizes.height * objectsDistance * .2;
         computerModel.rotation.y = -scrollY / sizes.height * objectsDistance * .7;
         floppyDisk.rotation.y = -scrollY / sizes.height * objectsDistance * .3;
+        pet.rotation.y = -scrollY / sizes.height * objectsDistance;
     }
 
     // Render
