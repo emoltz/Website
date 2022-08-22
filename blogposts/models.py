@@ -1,5 +1,4 @@
 from django.db import models
-from django import template
 
 
 class Category(models.Model):
