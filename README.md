@@ -51,6 +51,8 @@ Made some old-school macos 7-style windows:
 ## August 20
 The bloom effect is causing more problems than it is solving, so I am going to go back and re-do that section of the website. Sucks because of how long I spent trying to get the bloom render pass to work effectively. But alas...
 
-Update -- the new mesh looks ok with the bloom, and I only need 6 for the sample rate. Just using simpler models with an emission instead of a color seems to work pretty well. It's not exactly what I had in mind -- I wanted a toon effect, but when I assign the toon material to the custom mesh, it just turns black. Not sure why. I will work on that later though.
+Update -- the new mesh looks ok with the bloom, and I only need 6 for the sample rate. Just using simpler models with an emission instead of a color seems to work pretty well. It's not exactly what I had in mind -- I wanted a toon effect, but when I assign the toon material to the custom mesh, it just turns black. Not sure why, but I will try and investigate that later.
 <img width="919" alt="Screen Shot 2022-08-20 at 6 20 05 PM" src="https://user-images.githubusercontent.com/33405530/185767908-4da292af-0326-47ad-902f-d4713071aa05.png">
 
+## August 22
+Finally added the rest of the models to the first page. I definitely had a day of doubts of whether I would finish this project considering how much of a hodge-podge it is. I basically used this as a Frankenstein-ian way to practice all these different technologies. But I am now at peace with this. I am thinking of making a new site from scratch -- a sort of interactive resume/hub for all my professional projects. This would be *way* simpler than this site and I could use a framework like Next.js or Vite to do it. I could also take the opportunity to practice React.
