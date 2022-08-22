@@ -62,7 +62,7 @@ const objectsDistance = 4;
 let computerModel = null;
 // let material = null;
 let computerMaterial = null;
-const gltfLoader = new GLTFLoader();
+let gltfLoader = new GLTFLoader();
 gltfLoader.load(
     'static/images/3d_assets/exports/testbox3_glow.gltf',
     (gltf) => {
@@ -108,6 +108,31 @@ gltfLoader.load(
     }
 )
 
+let floppyDisk = null;
+gltfLoader = new GLTFLoader();
+gltfLoader.load(
+    'static/images/3d_assets/exports/floppyDisk2.gltf',
+    (gltf) => {
+        console.log("Floppy Success");
+        floppyDisk = gltf.scene;
+        console.log(floppyDisk)
+        scene.add(floppyDisk);
+        floppyDisk.children[0].children[0].material = backgroundMaterialCover;
+
+        floppyDisk.position.y = -objectsDistance;
+        floppyDisk.position.x = 1.9;
+        floppyDisk.rotation.z = .5;
+        floppyDisk.scale.set(.35,.35,.35);
+
+    },
+    () => {
+        console.log("Floppy Progress");
+    },
+    () => {
+        console.log("Error with model");
+    }
+)
+
 const mesh1 = new THREE.Mesh(
     new THREE.TorusGeometry(1, .4, 16, 32),
     material
@@ -136,7 +161,10 @@ mesh3.position.x = 1;
 const directionalLight = new THREE.DirectionalLight('#ffffff', 2)
 directionalLight.position.set(1, 1, 0);
 
-scene.add(mesh2, mesh3, directionalLight);
+scene.add(
+    // mesh2,
+    // mesh3,
+    directionalLight);
 
 const sectionMeshes = [mesh1, mesh2, mesh3];
 const sectionMeshesNew = [computerModel];
@@ -351,9 +379,10 @@ const tick = () => {
         mesh.rotation.y = scrollY / sizes.height * objectsDistance * .5;
     }
 
-    if (computerModel) {
+    if (computerModel && floppyDisk) {
         // computerModel.rotation.x = scrollY / sizes.height * objectsDistance * .2;
         computerModel.rotation.y = -scrollY / sizes.height * objectsDistance * .7;
+        floppyDisk.rotation.y = -scrollY / sizes.height * objectsDistance * .3;
     }
 
     // Render
